@@ -15,6 +15,7 @@ describe("Lock", function () {
     const unlockTime = (await time.latest()) + ONE_YEAR_IN_SECS;
 
     // Contracts are deployed using the first signer/account by default
+    // @audit we should use the second account to deploy the contract
     const [owner, otherAccount] = await ethers.getSigners();
 
     const Lock = await ethers.getContractFactory("Lock");
